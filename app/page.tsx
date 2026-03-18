@@ -363,8 +363,8 @@ export default function Home() {
                   <line x1="0" y1="0" x2="40" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                   <line x1="40" y1="16" x2="180" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                 </svg>
-                <div className="absolute pointer-events-none" style={{ top: "42px", left: "18px", width: "220px", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
-                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.7)" }}>
+                <div className="absolute pointer-events-none rounded-sm" style={{ top: "42px", left: "18px", width: "240px", padding: "10px 12px", background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", border: "1px solid rgba(0,210,190,0.4)", boxShadow: "0 0 12px rgba(0,210,190,0.15)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
+                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.9)" }}>
                     Центральный нейропроцессор. Обрабатывает сенсорные данные и координирует все системы в реальном времени.
                   </p>
                 </div>
@@ -383,8 +383,8 @@ export default function Home() {
                   <line x1="0" y1="0" x2="40" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                   <line x1="40" y1="16" x2="180" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                 </svg>
-                <div className="absolute pointer-events-none" style={{ top: "42px", left: "18px", width: "220px", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
-                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.7)" }}>
+                <div className="absolute pointer-events-none rounded-sm" style={{ top: "42px", left: "18px", width: "240px", padding: "10px 12px", background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", border: "1px solid rgba(0,210,190,0.4)", boxShadow: "0 0 12px rgba(0,210,190,0.15)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
+                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.9)" }}>
                     Плазменный энергоблок. Генерирует и распределяет питание по всем модулям через конвертацию высокоэнергетической плазмы.
                   </p>
                 </div>
@@ -403,8 +403,8 @@ export default function Home() {
                   <line x1="180" y1="0" x2="140" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                   <line x1="0" y1="16" x2="140" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                 </svg>
-                <div className="absolute pointer-events-none" style={{ top: "42px", right: "18px", width: "220px", textAlign: "right", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
-                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.7)" }}>
+                <div className="absolute pointer-events-none rounded-sm" style={{ top: "42px", right: "18px", width: "240px", padding: "10px 12px", textAlign: "right", background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", border: "1px solid rgba(0,210,190,0.4)", boxShadow: "0 0 12px rgba(0,210,190,0.15)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
+                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.9)" }}>
                     Адаптивный серво-привод. 7 степеней свободы, точность позиционирования 0.01мм, усилие захвата до 120Н.
                   </p>
                 </div>
