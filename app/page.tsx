@@ -413,7 +413,7 @@ export default function Home() {
 
             {/* Frozen hotspot — Servo Arm → FLEX JOINT */}
             {hotspotState.active === "servo" && hotspotState.phase === "frozen" && (
-              <div className="absolute" style={{ top: "45%", left: "35%", transform: "translate(-50%,-50%)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
+              <div className="absolute" style={{ top: "45%", left: "55%", transform: "translate(-50%,-50%)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <div className="relative w-4 h-4 cursor-pointer">
                   <div className="absolute inset-0 rounded-full animate-ping" style={{ background: "rgba(0,210,190,0.3)" }} />
                   <div className="absolute inset-0 rounded-full" style={{ background: "#00D2BE", boxShadow: "0 0 10px rgba(0,210,190,0.6), 0 0 20px rgba(0,210,190,0.3)" }} />
