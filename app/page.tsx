@@ -158,7 +158,20 @@ export default function Home() {
       });
     };
     tryPlay();
-    return () => { audio.pause(); };
+
+    const handleVisibility = () => {
+      if (document.hidden) {
+        audio.pause();
+      } else if (musicRef.current && !document.hidden) {
+        audio.play().catch(() => {});
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      audio.pause();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
 
   const toggleMusic = () => {
