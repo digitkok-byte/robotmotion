@@ -353,46 +353,61 @@ export default function Home() {
 
             {/* Frozen hotspot — Neural Core → AI MODULE */}
             {hotspotState.active === "neural" && hotspotState.phase === "frozen" && (
-              <div className="group/ear absolute" style={{ top: "18%", left: "58%", transform: "translate(-50%,-50%)" }}>
+              <div className="absolute" style={{ top: "18%", left: "58%", transform: "translate(-50%,-50%)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <div className="relative w-4 h-4 cursor-pointer">
                   <div className="absolute inset-0 rounded-full animate-ping" style={{ background: "rgba(0,210,190,0.3)" }} />
                   <div className="absolute inset-0 rounded-full" style={{ background: "#00D2BE", boxShadow: "0 0 10px rgba(0,210,190,0.6), 0 0 20px rgba(0,210,190,0.3)" }} />
                 </div>
-                <span className="absolute opacity-0 group-hover/ear:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[20px] tracking-[0.15em] font-medium" style={{ color: "#00D2BE", top: "-2px", left: "60px", textShadow: "0 0 12px rgba(0,210,190,0.5), 0 0 24px rgba(0,210,190,0.2)" }}>AI MODULE</span>
-                <svg className="absolute opacity-0 group-hover/ear:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ top: "24px", left: "18px", width: "180px", height: "30px", overflow: "visible" }}>
+                <span className="absolute pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[12px] md:text-[20px] tracking-[0.15em] font-medium" style={{ color: "#00D2BE", top: "-2px", left: "60px", textShadow: "0 0 12px rgba(0,210,190,0.5), 0 0 24px rgba(0,210,190,0.2)" }}>AI MODULE</span>
+                <svg className="absolute pointer-events-none" style={{ top: "24px", left: "18px", width: "180px", height: "30px", overflow: "visible" }}>
                   <line x1="0" y1="0" x2="40" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                   <line x1="40" y1="16" x2="180" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                 </svg>
+                <div className="absolute pointer-events-none" style={{ top: "42px", left: "18px", width: "220px", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
+                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.7)" }}>
+                    Центральный нейропроцессор. Обрабатывает сенсорные данные и координирует все системы в реальном времени.
+                  </p>
+                </div>
               </div>
             )}
 
             {/* Frozen hotspot — Power Core → PLASMA CELL */}
             {hotspotState.active === "power" && hotspotState.phase === "frozen" && (
-              <div className="group/pwr absolute" style={{ top: "40%", left: "50%", transform: "translate(-50%,-50%)" }}>
+              <div className="absolute" style={{ top: "40%", left: "50%", transform: "translate(-50%,-50%)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <div className="relative w-4 h-4 cursor-pointer">
                   <div className="absolute inset-0 rounded-full animate-ping" style={{ background: "rgba(0,210,190,0.3)" }} />
                   <div className="absolute inset-0 rounded-full" style={{ background: "#00D2BE", boxShadow: "0 0 10px rgba(0,210,190,0.6), 0 0 20px rgba(0,210,190,0.3)" }} />
                 </div>
-                <span className="absolute opacity-0 group-hover/pwr:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[20px] tracking-[0.15em] font-medium" style={{ color: "#00D2BE", top: "-2px", left: "60px", textShadow: "0 0 12px rgba(0,210,190,0.5), 0 0 24px rgba(0,210,190,0.2)" }}>PLASMA CELL</span>
-                <svg className="absolute opacity-0 group-hover/pwr:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ top: "24px", left: "18px", width: "180px", height: "30px", overflow: "visible" }}>
+                <span className="absolute pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[12px] md:text-[20px] tracking-[0.15em] font-medium" style={{ color: "#00D2BE", top: "-2px", left: "60px", textShadow: "0 0 12px rgba(0,210,190,0.5), 0 0 24px rgba(0,210,190,0.2)" }}>PLASMA CELL</span>
+                <svg className="absolute pointer-events-none" style={{ top: "24px", left: "18px", width: "180px", height: "30px", overflow: "visible" }}>
                   <line x1="0" y1="0" x2="40" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                   <line x1="40" y1="16" x2="180" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                 </svg>
+                <div className="absolute pointer-events-none" style={{ top: "42px", left: "18px", width: "220px", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
+                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.7)" }}>
+                    Плазменный энергоблок. Генерирует и распределяет питание по всем модулям через конвертацию высокоэнергетической плазмы.
+                  </p>
+                </div>
               </div>
             )}
 
             {/* Frozen hotspot — Servo Arm → FLEX JOINT */}
             {hotspotState.active === "servo" && hotspotState.phase === "frozen" && (
-              <div className="group/arm absolute" style={{ top: "45%", left: "35%", transform: "translate(-50%,-50%)" }}>
+              <div className="absolute" style={{ top: "45%", left: "35%", transform: "translate(-50%,-50%)", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <div className="relative w-4 h-4 cursor-pointer">
                   <div className="absolute inset-0 rounded-full animate-ping" style={{ background: "rgba(0,210,190,0.3)" }} />
                   <div className="absolute inset-0 rounded-full" style={{ background: "#00D2BE", boxShadow: "0 0 10px rgba(0,210,190,0.6), 0 0 20px rgba(0,210,190,0.3)" }} />
                 </div>
-                <span className="absolute opacity-0 group-hover/arm:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[20px] tracking-[0.15em] font-medium" style={{ color: "#00D2BE", top: "-2px", right: "60px", textShadow: "0 0 12px rgba(0,210,190,0.5), 0 0 24px rgba(0,210,190,0.2)" }}>FLEX JOINT</span>
-                <svg className="absolute opacity-0 group-hover/arm:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ top: "24px", right: "18px", width: "180px", height: "30px", overflow: "visible" }}>
+                <span className="absolute pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[12px] md:text-[20px] tracking-[0.15em] font-medium" style={{ color: "#00D2BE", top: "-2px", right: "60px", textShadow: "0 0 12px rgba(0,210,190,0.5), 0 0 24px rgba(0,210,190,0.2)" }}>FLEX JOINT</span>
+                <svg className="absolute pointer-events-none" style={{ top: "24px", right: "18px", width: "180px", height: "30px", overflow: "visible" }}>
                   <line x1="180" y1="0" x2="140" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                   <line x1="0" y1="16" x2="140" y2="16" stroke="#00D2BE" strokeWidth="1.5" style={{ filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
                 </svg>
+                <div className="absolute pointer-events-none" style={{ top: "42px", right: "18px", width: "220px", textAlign: "right", animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s both" }}>
+                  <p className="text-[10px] md:text-[12px] leading-relaxed font-[var(--font-outfit)]" style={{ color: "rgba(0,210,190,0.7)" }}>
+                    Адаптивный серво-привод. 7 степеней свободы, точность позиционирования 0.01мм, усилие захвата до 120Н.
+                  </p>
+                </div>
               </div>
             )}
 
@@ -425,24 +440,28 @@ export default function Home() {
                   <div className="absolute inset-0 rounded-full" style={{ background: "#00D2BE", boxShadow: "0 0 10px rgba(0,210,190,0.6), 0 0 20px rgba(0,210,190,0.3)" }} />
                 </div>
                 <span
-                  className="absolute opacity-0 group-hover/dot:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[12px] md:text-[20px] tracking-[0.15em] font-medium"
+                  className="absolute pointer-events-none whitespace-nowrap font-[var(--font-outfit)] text-[12px] md:text-[20px] tracking-[0.15em] font-medium"
                   style={{
                     color: "#00D2BE",
                     top: "-2px",
                     [spot.dir === "right" ? "left" : "right"]: "60px",
                     textShadow: "0 0 12px rgba(0,210,190,0.5), 0 0 24px rgba(0,210,190,0.2)",
+                    animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both",
+                    animationDelay: `${idx * 200}ms`,
                   }}
                 >
                   {spot.label}
                 </span>
                 <svg
-                  className="absolute opacity-0 group-hover/dot:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  className="absolute pointer-events-none"
                   style={{
                     top: "24px",
                     [spot.dir === "right" ? "left" : "right"]: "18px",
                     width: "180px",
                     height: "30px",
                     overflow: "visible",
+                    animation: "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both",
+                    animationDelay: `${idx * 200 + 100}ms`,
                   }}
                 >
                   <line
