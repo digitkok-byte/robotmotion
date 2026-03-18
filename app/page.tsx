@@ -518,6 +518,18 @@ export default function Home() {
                 </svg>
               </div>
             ))}
+
+            {/* Interactive hint */}
+            {hotspotState.phase === "image" && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 pointer-events-none" style={{ animation: "fade-up 0.8s cubic-bezier(0.16,1,0.3,1) 0.8s both" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D2BE" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M15 15l-2 5L9 9l11 4-5 2z" />
+                </svg>
+                <span className="text-[10px] md:text-[12px] tracking-[0.15em] font-[var(--font-outfit)] font-medium" style={{ color: "#00D2BE", textShadow: "0 0 8px rgba(0,210,190,0.4)" }}>
+                  НАЖМИТЕ НА HOTSPOT ДЛЯ АКТИВАЦИИ
+                </span>
+              </div>
+            )}
           </div>
         </FadeIn>
 
