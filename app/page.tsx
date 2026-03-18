@@ -519,15 +519,17 @@ export default function Home() {
               </div>
             ))}
 
-            {/* Interactive hint */}
+            {/* Interactive hint — top */}
             {hotspotState.phase === "image" && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 pointer-events-none" style={{ animation: "fade-up 0.8s cubic-bezier(0.16,1,0.3,1) 0.8s both" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D2BE" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M15 15l-2 5L9 9l11 4-5 2z" />
-                </svg>
-                <span className="text-[10px] md:text-[12px] tracking-[0.15em] font-[var(--font-outfit)] font-medium" style={{ color: "#00D2BE", textShadow: "0 0 8px rgba(0,210,190,0.4)" }}>
-                  НАЖМИТЕ НА HOTSPOT ДЛЯ АКТИВАЦИИ
-                </span>
+              <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none rounded-sm" style={{ padding: "10px 20px", background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", border: "1px solid rgba(0,210,190,0.4)", boxShadow: "0 0 20px rgba(0,210,190,0.2), 0 0 40px rgba(0,210,190,0.1)", animation: "fade-up 0.8s cubic-bezier(0.16,1,0.3,1) 0.8s both" }}>
+                <div className="flex items-center gap-3">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D2BE" strokeWidth="1.5" strokeLinecap="round">
+                    <path d="M15 15l-2 5L9 9l11 4-5 2z" />
+                  </svg>
+                  <span className="text-[14px] md:text-[18px] tracking-[0.15em] font-[var(--font-outfit)] font-semibold whitespace-nowrap" style={{ color: "#00D2BE", textShadow: "0 0 12px rgba(0,210,190,0.6), 0 0 24px rgba(0,210,190,0.3)" }}>
+                    НАЖМИТЕ НА HOTSPOT
+                  </span>
+                </div>
               </div>
             )}
           </div>
