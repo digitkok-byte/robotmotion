@@ -87,7 +87,7 @@ const WORKS = [
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [kbHover, setKbHover] = useState<string | null>(null);
-  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(true);
   const musicRef = useRef<HTMLAudioElement | null>(null);
   const [hotspotState, setHotspotState] = useState<{ active: string | null; phase: "image" | "playing" | "frozen" }>({ active: null, phase: "image" });
   const videoRef1 = useRef<HTMLVideoElement>(null);
@@ -139,6 +139,26 @@ export default function Home() {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const audio = new Audio("/ambient.mp3");
+    audio.loop = true;
+    audio.volume = 0.3;
+    musicRef.current = audio;
+    const tryPlay = () => {
+      audio.play().catch(() => {
+        // Browser blocked autoplay, wait for user interaction
+        setMusicPlaying(false);
+        const handler = () => {
+          audio.play().then(() => setMusicPlaying(true)).catch(() => {});
+          document.removeEventListener("click", handler);
+        };
+        document.addEventListener("click", handler);
+      });
+    };
+    tryPlay();
+    return () => { audio.pause(); };
   }, []);
 
   const toggleMusic = () => {
