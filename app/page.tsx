@@ -87,6 +87,8 @@ const WORKS = [
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [kbHover, setKbHover] = useState<string | null>(null);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const musicRef = useRef<HTMLAudioElement | null>(null);
   const [hotspotState, setHotspotState] = useState<{ active: string | null; phase: "image" | "playing" | "frozen" }>({ active: null, phase: "image" });
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
@@ -139,8 +141,50 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMusic = () => {
+    if (!musicRef.current) {
+      const audio = new Audio("/ambient.mp3");
+      audio.loop = true;
+      audio.volume = 0.3;
+      musicRef.current = audio;
+    }
+    if (musicPlaying) {
+      musicRef.current.pause();
+    } else {
+      musicRef.current.play();
+    }
+    setMusicPlaying(!musicPlaying);
+  };
+
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-fg)]">
+
+      {/* Music toggle */}
+      <button
+        onClick={toggleMusic}
+        className="fixed bottom-5 left-5 z-50 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer transition-all duration-300 hover:scale-110"
+        style={{
+          background: "rgba(0,0,0,0.3)",
+          backdropFilter: "blur(8px)",
+          border: `1px solid ${musicPlaying ? "rgba(0,210,190,0.5)" : "rgba(255,255,255,0.15)"}`,
+          boxShadow: musicPlaying ? "0 0 12px rgba(0,210,190,0.3)" : "none",
+        }}
+        title={musicPlaying ? "Выключить звук" : "Включить звук"}
+      >
+        {musicPlaying ? (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D2BE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="rgba(0,210,190,0.2)" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          </svg>
+        ) : (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="rgba(255,255,255,0.1)" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
+          </svg>
+        )}
+      </button>
 
       {/* ── HERO ── */}
       <section className="min-h-[80vh] md:min-h-screen pt-12 md:pt-20 pb-12 md:pb-20 px-4 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
