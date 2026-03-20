@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { BentoStatsCard } from "./components/BentoStats";
 
 /* ── FadeIn — taste-skill: staggered cubic-bezier reveals ── */
 function FadeIn({
@@ -567,91 +568,23 @@ export default function Home() {
                   </div>
                 </div>
               )}
-              {/* Neural CORE card — description left, video right */}
+              {/* Neural CORE card — Bento Stats Dashboard */}
               {i === 0 ? (
-                <div
-                  className="group relative overflow-hidden cursor-pointer transition-all duration-500"
-                  style={{ background: "var(--color-tag-bg)" }}
-                  onMouseEnter={() => setKbHover("neural")}
-                  onMouseLeave={() => setKbHover(null)}
-                >
-                  <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 p-5 md:p-8">
-                    {/* Description left */}
-                    <div className="flex flex-col gap-3 flex-1 min-w-0">
-                      <p className="text-[10px] tracking-[0.15em] font-medium" style={{ color: "var(--color-muted)" }}>{work.tag}</p>
-                      <h3 className="font-[var(--font-outfit)] text-[22px] md:text-[28px] font-bold tracking-[-0.01em]">{work.title}</h3>
-                      <p className="text-[13px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
-                        Нейронное ядро управления. Центральный процессор обработки данных и принятия решений в реальном времени.
-                      </p>
-                      <span className="text-[12px] font-[var(--font-mono)] tabular-nums" style={{ color: "var(--color-muted)" }}>{work.year}</span>
-                    </div>
-                    {/* Video right — monitor frame */}
-                    <div className="relative w-full md:w-1/2 aspect-[4/3] rounded-sm overflow-hidden flex-shrink-0" style={{ border: "1px solid rgba(0,210,190,0.4)", boxShadow: "0 0 12px rgba(0,210,190,0.15), inset 0 0 12px rgba(0,210,190,0.05)" }}>
-                      <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <video
-                        className="absolute inset-0 w-full h-full object-contain"
-                        src={work.video!}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{ filter: "contrast(1.15) brightness(0.95) saturate(1.2) blur(0.4px)" }}
-                        data-kenburns={kbHover === "neural" ? "active" : "idle"}
-                      />
-                      <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-[0.08]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundSize: "128px 128px" }} />
-                      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.3) 100%)" }} />
-                    </div>
-                  </div>
-                  {/* Hover arrow */}
-                  <div className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ border: "1px solid var(--color-tag-border)" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
-                  </div>
-                </div>
+                <BentoStatsCard
+                  title={work.title}
+                  tag={work.tag}
+                  year={work.year}
+                  description="Нейронное ядро управления. Центральный процессор обработки данных и принятия решений в реальном времени."
+                  type="neural"
+                />
               ) : i === 1 ? (
-                <div
-                  className="group relative overflow-hidden cursor-pointer transition-all duration-500"
-                  style={{ background: "var(--color-tag-bg)" }}
-                  onMouseEnter={() => setKbHover("power")}
-                  onMouseLeave={() => setKbHover(null)}
-                >
-                  <div className="flex flex-col-reverse md:flex-row md:items-center gap-4 md:gap-6 p-5 md:p-8">
-                    {/* Video left on desktop, bottom on mobile */}
-                    <div className="relative w-full md:w-1/2 aspect-[4/3] rounded-sm overflow-hidden flex-shrink-0" style={{ border: "1px solid rgba(0,210,190,0.4)", boxShadow: "0 0 12px rgba(0,210,190,0.15), inset 0 0 12px rgba(0,210,190,0.05)" }}>
-                      <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 pointer-events-none z-10" style={{ borderColor: "#00D2BE", filter: "drop-shadow(0 0 4px rgba(0,210,190,0.6))" }} />
-                      <video
-                        className="absolute inset-0 w-full h-full object-contain"
-                        src={work.video!}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{ filter: "contrast(1.15) brightness(0.95) saturate(1.2) blur(0.4px)" }}
-                        data-kenburns={kbHover === "power" ? "active" : "idle"}
-                      />
-                      <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-[0.08]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundSize: "128px 128px" }} />
-                      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.3) 100%)" }} />
-                    </div>
-                    {/* Description */}
-                    <div className="flex flex-col gap-3 flex-1 min-w-0">
-                      <p className="text-[10px] tracking-[0.15em] font-medium" style={{ color: "var(--color-muted)" }}>{work.tag}</p>
-                      <h3 className="font-[var(--font-outfit)] text-[22px] md:text-[28px] font-bold tracking-[-0.01em]">{work.title}</h3>
-                      <p className="text-[13px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
-                        Энергетическое ядро системы. Обеспечивает непрерывное питание всех модулей робота через плазменную конвертацию.
-                      </p>
-                      <span className="text-[12px] font-[var(--font-mono)] tabular-nums" style={{ color: "var(--color-muted)" }}>{work.year}</span>
-                    </div>
-                  </div>
-                  {/* Hover arrow */}
-                  <div className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" style={{ border: "1px solid var(--color-tag-border)" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
-                  </div>
-                </div>
+                <BentoStatsCard
+                  title={work.title}
+                  tag={work.tag}
+                  year={work.year}
+                  description="Энергетическое ядро системы. Обеспечивает непрерывное питание всех модулей робота через плазменную конвертацию."
+                  type="power"
+                />
               ) : (
               <div
                 className={`group relative overflow-hidden cursor-pointer transition-all duration-500 ${i === 2 ? "" : "aspect-[16/10]"}`}
